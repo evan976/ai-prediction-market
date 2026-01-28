@@ -6,31 +6,78 @@
     "useIgnoreFile": true
   },
   "files": {
-    "ignoreUnknown": true,
+    "ignoreUnknown": false,
     "includes": ["**", "!node_modules", "!.next", "!dist", "!build"]
   },
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
-    "indentWidth": 2
+    "indentWidth": 2,
+    "lineWidth": 80,
+    "attributePosition": "auto"
   },
   "linter": {
     "enabled": true,
-    "rules": {
-      "recommended": true,
-      "suspicious": {
-        "noUnknownAtRules": "off"
-      }
-    },
     "domains": {
       "next": "recommended",
       "react": "recommended"
+    },
+    "rules": {
+      "suspicious": {
+        "noExplicitAny": "off",
+        "noArrayIndexKey": "off",
+        "noUnknownAtRules": "off",
+        "noDuplicateProperties": "off",
+        "useIterableCallbackReturn": "off",
+        "noAssignInExpressions": "off"
+      },
+      "a11y": {
+        "useFocusableInteractive": "off",
+        "useKeyWithClickEvents": "off",
+        "useSemanticElements": "off",
+        "noSvgWithoutTitle": "off",
+        "useAriaPropsForRole": "off",
+        "noNoninteractiveTabindex": "off",
+        "useAriaPropsSupportedByRole": "off",
+        "noStaticElementInteractions": "off",
+        "noLabelWithoutControl": "off",
+        "useValidAnchor": "off",
+        "useAnchorContent": "off"
+      },
+      "complexity": {
+        "noUselessFragments": "off",
+        "noImportantStyles": "off"
+      },
+      "style": {
+        "noNonNullAssertion": "off",
+        "noHeadElement": "off",
+        "noDescendingSpecificity": "off"
+      },
+      "performance": {
+        "noImgElement": "off"
+      },
+      "security": {
+        "noDangerouslySetInnerHtml": "off"
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "jsxQuoteStyle": "double",
+      "semicolons": "asNeeded"
     }
   },
   "assist": {
+    "enabled": true,
     "actions": {
       "source": {
-        "organizeImports": "on"
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [":NODE:", "react", "next"]
+          }
+        }
       }
     }
   }
